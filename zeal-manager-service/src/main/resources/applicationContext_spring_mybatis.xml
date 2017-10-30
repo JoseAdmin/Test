@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	 ">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver">	<!--驱动路径--> 	
+		</property>
+		<property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:orcl"> <!--url，每种数据库不一样-->
+		</property>
+		<property name="username" value="facilityManagement"></property> <!--帐号-->
+		<property name="password" value="facilityManagement"></property> <!--密码-->
+	</bean>
+	
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		 <!--指定数据源 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 指定mybatis配置文件-->
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		
+		<!-- 指定需生成的实现类，用通配符，也可在mybatis-config.xml逐一配置,无法使用通配符需解决-->
+		<property name="mapperLocations">
+			<value>classpath:dao/system/*Mapper.xml</value>
+		</property>
+	</bean>
+	
+	<!--将映射接口定义为springBean-->
+	<bean id="ud" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- mapper文件的包名 -->
+    	<property name="basePackage" value="dao.system"></property>
+		<!--指定是那个sqlSessionFactory-->
+    	<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+</beans>

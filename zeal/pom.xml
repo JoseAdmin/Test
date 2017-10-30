@@ -1,0 +1,314 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zeal</groupId>
+  <artifactId>zeal-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  	<!-- 集中定义依赖版本号 -->
+    <properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	
+    	<!-- jdk版本 -->
+    	<maven-compiler-plugin.version>1.7</maven-compiler-plugin.version>
+    	 
+        <mybatis.version>3.4.4</mybatis.version>
+        <ant.version>1.9.6</ant.version>
+        <ant-launcher.version>1.9.6</ant-launcher.version>
+        <!-- 
+        <asm.version>3.3</asm.version>
+         -->
+        <cglib.version>3.2.5</cglib.version>
+        <commons-logging.version>1.2</commons-logging.version>
+        <javassist.version>3.21.0-GA</javassist.version>
+        <log4j.version>1.2.17</log4j.version>
+        <log4j-api.version>2.3</log4j-api.version>
+        <log4j-core.version>2.3</log4j-core.version>
+        <ognl.version>3.1.14</ognl.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
+        <ojdbc14.version>10.2.0.3.0</ojdbc14.version>
+       
+    	<spring-context.version>3.1.1.RELEASE</spring-context.version>
+    	<spring-core.version>3.1.1.RELEASE</spring-core.version>
+    	<spring-beans.version>3.1.1.RELEASE</spring-beans.version>
+    	<spring-web.version>3.1.1.RELEASE</spring-web.version>
+    	<spring-aop.version>3.1.1.RELEASE</spring-aop.version>
+    	<mybatis-spring.version>1.3.1</mybatis-spring.version>
+    	<commons-collections.version>3.2</commons-collections.version>
+    	<commons-logging.version>1.1.1</commons-logging.version>
+    	<commons-pool.version>1.5.3</commons-pool.version>
+    	<commons-dbcp.version>1.4</commons-dbcp.version>
+    	<spring-jdbc.version>3.1.1.RELEASE</spring-jdbc.version>
+    	<aspectjweaver.version>1.6.9</aspectjweaver.version>
+    	
+    	<asm-commons.version>3.3</asm-commons.version>
+    	<asm-tree.version>3.3</asm-tree.version>
+    	<commons-fileupload.version>1.3.2</commons-fileupload.version>
+    	<commons-io.version>2.2</commons-io.version>
+    	<commons-lang3.version>3.2</commons-lang3.version>
+    	<freemarker.version>2.3.22</freemarker.version>
+    	<struts2-core.version>2.3.33</struts2-core.version>
+    	<struts2-json-plugin.version>2.3.33</struts2-json-plugin.version>
+    	<xwork-core.version>2.3.33</xwork-core.version>
+    	<struts2-spring-plugin.version>2.2.1</struts2-spring-plugin.version>
+    </properties>
+    
+    <!-- 依赖架包管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- mybatis及其依赖的架包开始 -->
+			<dependency>
+			    <groupId>org.mybatis</groupId>
+			    <artifactId>mybatis</artifactId>
+			    <version>${mybatis.version}</version>
+			</dependency>
+
+			<dependency>
+			    <groupId>org.apache.ant</groupId>
+			    <artifactId>ant</artifactId>
+			    <version>${ant.version}</version>
+			</dependency>
+
+			<dependency>
+			    <groupId>org.apache.ant</groupId>
+			    <artifactId>ant-launcher</artifactId>
+			    <version>${ant-launcher.version}</version>
+			</dependency>
+
+			<!-- 
+			<dependency>
+			    <groupId>asm</groupId>
+			    <artifactId>asm</artifactId>
+			    <version>${asm.version}</version>
+			</dependency>
+			 -->
+			
+			<dependency>
+			    <groupId>cglib</groupId>
+			    <artifactId>cglib</artifactId>
+			    <version>${cglib.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>commons-logging</groupId>
+			    <artifactId>commons-logging</artifactId>
+			    <version>${commons-logging.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.javassist</groupId>
+			    <artifactId>javassist</artifactId>
+			    <version>${javassist.version}</version>
+			</dependency>
+
+			<dependency>
+			    <groupId>log4j</groupId>
+			    <artifactId>log4j</artifactId>
+			    <version>${log4j.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.logging.log4j</groupId>
+			    <artifactId>log4j-api</artifactId>
+			    <version>${log4j-api.version}</version>
+			</dependency>
+
+			<dependency>
+			    <groupId>org.apache.logging.log4j</groupId>
+			    <artifactId>log4j-core</artifactId>
+			    <version>${log4j-core.version}</version>
+			</dependency>
+
+			<dependency>
+			    <groupId>ognl</groupId>
+			    <artifactId>ognl</artifactId>
+			    <version>${ognl.version}</version>
+			</dependency>
+	
+			<dependency>
+			    <groupId>org.slf4j</groupId>
+			    <artifactId>slf4j-api</artifactId>
+			    <version>${slf4j-api.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.slf4j</groupId>
+			    <artifactId>slf4j-log4j12</artifactId>
+			    <version>${slf4j-log4j12.version}</version>
+			</dependency>
+  			<!-- mybatis及其依赖的架包结束 -->
+
+  			<!-- spring及其依赖架包开始 -->
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-context</artifactId>
+			    <version>${spring-context.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-core</artifactId>
+			    <version>${spring-core.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-beans</artifactId>
+			    <version>${spring-beans.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-web</artifactId>
+			    <version>${spring-web.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-aop</artifactId>
+			    <version>${spring-aop.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>commons-collections</groupId>
+			    <artifactId>commons-collections</artifactId>
+			    <version>${commons-collections.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>commons-logging</groupId>
+			    <artifactId>commons-logging</artifactId>
+			    <version>${commons-logging.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>commons-pool</groupId>
+			    <artifactId>commons-pool</artifactId>
+			    <version>${commons-pool.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>commons-dbcp</groupId>
+			    <artifactId>commons-dbcp</artifactId>
+			    <version>${commons-dbcp.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-jdbc</artifactId>
+			    <version>${spring-jdbc.version}</version>
+			</dependency>
+
+			<dependency>
+			    <groupId>org.aspectj</groupId>
+			    <artifactId>aspectjweaver</artifactId>
+			    <version>${aspectjweaver.version}</version>
+			</dependency>
+			
+  			<!-- spring及其依赖架包结束 -->
+  			
+  			<!-- spring和mybatis的整合架包 -->
+			<dependency>
+			    <groupId>org.mybatis</groupId>
+			    <artifactId>mybatis-spring</artifactId>
+			    <version>${mybatis-spring.version}</version>
+			</dependency>
+			
+			<!-- struts2 mvc及其依赖架包 开始-->
+			<!-- asm-3.3.jar已在mybatis中有定义版本，此处省略 -->
+			<!-- javassist-3.11.0.GA.jar已在mybatis中有定义版本，此处省略 -->
+		    <!-- log4j-api-2.3.jar已在mybatis中有定义版本，此处省略 -->
+		    <!-- ognl-3.0.19.jar已在mybatis中有定义版本，此处省略 -->
+			<dependency>
+			    <groupId>asm</groupId>
+			    <artifactId>asm-commons</artifactId>
+			    <version>${asm-commons.version}</version>
+			    <scope>provided</scope>
+			</dependency>
+			
+			<dependency>
+			    <groupId>asm</groupId>
+			    <artifactId>asm-tree</artifactId>
+			    <version>${asm-tree.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>commons-fileupload</groupId>
+			    <artifactId>commons-fileupload</artifactId>
+			    <version>${commons-fileupload.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>commons-io</groupId>
+			    <artifactId>commons-io</artifactId>
+			    <version>${commons-io.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-lang3</artifactId>
+			    <version>${commons-lang3.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.freemarker</groupId>
+			    <artifactId>freemarker</artifactId>
+			    <version>${freemarker.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.struts</groupId>
+			    <artifactId>struts2-core</artifactId>
+			    <version>${struts2-core.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.struts</groupId>
+			    <artifactId>struts2-json-plugin</artifactId>
+			    <version>${struts2-json-plugin.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.struts.xwork</groupId>
+			    <artifactId>xwork-core</artifactId>
+			    <version>${xwork-core.version}</version>
+			</dependency>
+			<!-- struts2 mvc及其依赖架包 结束-->
+  			
+  			<!--struts2-spring整合包  -->
+			<dependency>
+			    <groupId>org.apache.struts</groupId>
+			    <artifactId>struts2-spring-plugin</artifactId>
+			    <version>${struts2-spring-plugin.version}</version>
+			</dependency>
+  			
+        </dependencies>
+    </dependencyManagement>
+
+  	<!-- 插件管理 -->
+	<build>
+		<finalName>zeal</finalName>
+		<plugins>
+			<!-- jdk -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${maven-compiler-plugin.version}</source>
+					<target>${maven-compiler-plugin.version}</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

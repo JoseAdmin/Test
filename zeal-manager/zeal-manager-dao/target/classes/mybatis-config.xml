@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>  
+		<setting name="logImpl" value="LOG4J"/>   	
+	</settings>
+
+
+  <!-- ��ݿ���Ϣ���ɶ�������defaultָ��ʹ����һ��,ʹ��spring��Ϊ��datasourceί�е�spring��Ҫ��������Ϣд��spring����
+	<environments default="development">
+		<environment id="development">
+		  <transactionManager type="JDBC"/>
+			POOLEDָʹ�����Դ�����Դ�ڿ�����Զ�����  
+			<dataSource type="POOLED">
+			  <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+			  <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+			  <property name="username" value="facilityManagement"/>
+			  <property name="password" value="facilityManagement"/>
+			</dataSource>
+		</environment>
+	</environments>
+	 -->
+
+  <!--���ʼ����maper�ļ���SqlSessionFactory�Ѿ�ί�е�spring��ɨ��mapper�ļ�Ҳ������spring������ɣ�Ҳ����������һ����<mapper resource="system/DepartmentMapper.xml"/>
+	<mappers>
+		<package name="dao.system"/>
+	</mappers>
+	-->
+
+</configuration>

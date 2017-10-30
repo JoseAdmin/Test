@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.system.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="entity.system.Department" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="NAME" property="name" jdbcType="OTHER" />
+    <result column="PHONE" property="phone" jdbcType="OTHER" />
+    <result column="FAX" property="fax" jdbcType="OTHER" />
+    <result column="DESCRIPTION" property="description" jdbcType="OTHER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, PHONE, FAX, DESCRIPTION
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from DEPARTMENT
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from DEPARTMENT
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="entity.system.Department" >
+  	
+    insert into DEPARTMENT (ID, NAME, PHONE, 
+      FAX, DESCRIPTION)
+    values (DEPARTMENT_SE.nextval, #{name,jdbcType=OTHER}, #{phone,jdbcType=OTHER}, 
+      #{fax,jdbcType=OTHER}, #{description,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="entity.system.Department" >
+    insert into DEPARTMENT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="fax != null" >
+        FAX,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=OTHER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=OTHER},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=OTHER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.system.Department" >
+    update DEPARTMENT
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=OTHER},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=OTHER},
+      </if>
+      <if test="fax != null" >
+        FAX = #{fax,jdbcType=OTHER},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=OTHER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.system.Department" >
+    update DEPARTMENT
+    set NAME = #{name,jdbcType=OTHER},
+      PHONE = #{phone,jdbcType=OTHER},
+      FAX = #{fax,jdbcType=OTHER},
+      DESCRIPTION = #{description,jdbcType=OTHER}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
